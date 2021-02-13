@@ -10,18 +10,16 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   let anchors = document.querySelectorAll('a[href*="#"]');
 
-  for (anchor of anchors) {
-    if (anchor) {
-      anchor.addEventListener('click', function (event) {
-        event.preventDefault();
-        console.log(anchor);
-        let anchorId = this.getAttribute('href');
-        console.log(anchorId);
-        document.querySelector(anchorId).scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+  for (let anchor of anchors) {
+    anchor.addEventListener('click', event => {
+      event.preventDefault();
+      console.log(anchor);
+      let anchorId = anchor.getAttribute('href');
+      console.log(anchorId);
+      document.querySelector(anchorId).scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
-    }
+    });
   }
 });
